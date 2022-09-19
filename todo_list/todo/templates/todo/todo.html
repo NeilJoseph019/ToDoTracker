@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} To-Do List {% endblock %}
+
+{% block cssFiles %}
+    <link rel="stylesheet" href="{% static 'todo/todo.css' %}">
+{% endblock %}
+
+{% block content %} 
+        <h1> To-Do List </h1>
+{% endblock %}
