@@ -8,5 +8,21 @@
 {% endblock %}
 
 {% block content %} 
+
         <h1> To-Do List </h1>
+        <br>
+        <div class="taskListUl">
+            <ul>
+                {% for task in tasks %}
+                <li>
+                    {{ task.title|title }} -- {{ task.timestamp.date }}
+                    <br>
+                    <p>
+                        {{ task.description }}
+                    </p>
+                    {% endfor %}
+                </li>
+            </ul>
+        </div>
+        
 {% endblock %}
