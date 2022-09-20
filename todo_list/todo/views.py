@@ -9,7 +9,7 @@ class TodoTaskView (ListView):
     template_name = "todo/todo.html"
     model = models.Task
     context_object_name = "tasks"
-    ordering = ["-timestamp"]
+    ordering = ["timestamp"]
 
 class TaskInDetail(DetailView):
     template_name = "todo/taskDetail.html"
@@ -22,8 +22,14 @@ class EnterTasknDetails(CreateView):
     success_url = reverse_lazy('todoPage')
     
 class UpdateTask(UpdateView):
-    template_name = "todo/UpdateTaskDetails.html"
+    template_name = "todo/updateTaskDetails.html"
     model = models.Task
     fields = "__all__"
+    success_url = reverse_lazy('todoPage')
+
+class DeleteTask(DeleteView):
+    template_name = "todo/deleteTask.html"
+    model = models.Task
+    context_object_name = "task"
     success_url = reverse_lazy('todoPage')
 

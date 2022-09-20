@@ -18,12 +18,17 @@
         <div class="taskListUl">
             <table>
                 <tr>
+                    <th>Id</th>
                     <th> Tasks </th>
                     <th> Time Stamp</th>
                     <th> Description </th>
+                    <th>Completed?</th>
                 </tr>
                 {% for task in tasks %} 
                 <tr>       
+                    <td>
+                        {{ task.id }}
+                    </td>
                     <td>
                         <a href="{% url 'taskInDetail' task.pk %}">{{ task.title|title }}</a>
                     </td>
@@ -34,6 +39,9 @@
                         <p>
                             {{ task.description }}
                         </p>
+                    </td>
+                    <td> 
+                        {{ task.complete }}
                     </td>
                 </tr>
                 {% empty %}

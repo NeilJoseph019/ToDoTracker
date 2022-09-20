@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Task in Detail {% endblock %}
+
+{% block cssFiles %}
+    <!-- <link rel="stylesheet" href="{% static 'todo/deleteTask.css' %}"> -->
+{% endblock %}
+
+{% block content %} 
+<a href="{% url 'todoPage'%}"><Button> Back to main page </Button></a>
+<form method="post">
+    {% csrf_token %}
+    <h2>
+        Are you sure you wish to delete this task : {{ task.title }} ??
+    </h2>
+    <input type="submit" value="Delete">
+</form>
+
+
+{% endblock %} 

@@ -10,6 +10,7 @@
 {% block content %} 
 <a href="{% url 'todoPage' %}"><Button> Back to main page </Button></a>
 <a href="{% url 'updateTaskDetails' task.pk %}"><Button> Edit Task </Button></a>
+<a href="{% url 'deleteTask' task.pk %}"><Button> Delete Task </Button></a>
 <div class="taskDisplay">
    <h1> Title :{{ task.title }}</h1>
    <h5> Date :{{ task.timestamp.date }}</h5>
