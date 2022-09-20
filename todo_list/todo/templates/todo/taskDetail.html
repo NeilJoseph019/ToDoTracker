@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Task in Detail {% endblock %}
+
+{% block cssFiles %}
+    <!-- <link rel="stylesheet" href="{% static 'todo/taskDetail.css' %}"> -->
+{% endblock %}
+
+{% block content %} 
+<a href="{% url 'todoPage' %}"><Button> Back to main page </Button></a>
+<a href="{% url 'updateTaskDetails' task.pk %}"><Button> Edit Task </Button></a>
+<div class="taskDisplay">
+   <h1> Title :{{ task.title }}</h1>
+   <h5> Date :{{ task.timestamp.date }}</h5>
+   <h4> Description :{{ task.description }}</h4>
+   <p> Complete :{{ task.complete }}</p>
+
+</div>
+
+{% endblock %}
