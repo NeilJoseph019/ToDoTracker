@@ -12,17 +12,31 @@
         <h1> To-Do List </h1>
         <br>
         <div class="taskListUl">
-            <ul>
-                {% for task in tasks %}
-                <li>
-                    {{ task.title|title }} -- {{ task.timestamp.date }}
-                    <br>
-                    <p>
-                        {{ task.description }}
-                    </p>
-                    {% endfor %}
-                </li>
-            </ul>
+            <table>
+                <tr>
+                    <th> Tasks </th>
+                    <th> Time Stamp</th>
+                    <th> Description </th>
+                </tr>
+                {% for task in tasks %} 
+                <tr>       
+                    <td>
+                        {{ task.title|title }}
+                    </td>
+                    <td>
+                        {{ task.timestamp.date }}
+                    </td>
+                    <td>
+                        <p>
+                            {{ task.description }}
+                        </p>
+                    </td>
+                </tr>
+                {% empty %}
+                <h3> No items entered in the list to display. </h3>
+                {% endfor %}
+            </table>
+            
         </div>
         
 {% endblock %}
