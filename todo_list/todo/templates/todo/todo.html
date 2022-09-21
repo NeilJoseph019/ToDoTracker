@@ -9,6 +9,12 @@
 
 {% block content %} 
 
+    {% if request.user.is_authenticated %}
+        <h1>{{ request.user|title}}</h1>
+
+        <a href="{% url 'logoutPage' %}"><button> Logout </button></a>
+    {% endif %}
+        <hr>
         <h1> To-Do List </h1>
         <div class="linkButtons">
             <a href="{% url 'enterTaskDetails' %}"><button> Add new task </button></a> 
@@ -18,34 +24,34 @@
         <div class="taskListUl">
             <table>
                 <tr>
-                    <th>Id</th>
+                    <!-- <th>Id</th> -->
                     <th> Tasks </th>
                     <th> Time Stamp</th>
                     <th> Description </th>
                     <th>Completed?</th>
                 </tr>
                 {% for task in tasks %} 
-                <tr>       
-                    <td>
-                        {{ task.id }}
-                    </td>
-                    <td>
-                        <a href="{% url 'taskInDetail' task.pk %}">{{ task.title|title }}</a>
-                    </td>
-                    <td>
-                        {{ task.timestamp.date }}
-                    </td>
-                    <td>
-                        <p>
-                            {{ task.description }}
-                        </p>
-                    </td>
-                    <td> 
-                        {{ task.complete }}
-                    </td>
-                </tr>
+                    <tr>       
+                        <!-- <td>
+                            {{ task.id }}
+                        </td> -->
+                        <td>
+                            <a href="{% url 'taskInDetail' task.pk %}">{{ task.title|title }}</a>
+                        </td>
+                        <td>
+                            {{ task.timestamp.date }}
+                        </td>
+                        <td>
+                            <p>
+                                {{ task.description }}
+                            </p>
+                        </td>
+                        <td> 
+                            {{ task.complete }}
+                        </td>
+                    </tr>
                 {% empty %}
-                <h3> No items entered in the list to display. </h3>
+                    <h3> No items entered in the list to display. </h3>
                 {% endfor %}
             </table>
             

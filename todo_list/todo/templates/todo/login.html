@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Login Page {% endblock %}
+
+{% block cssFiles %}
+    <!-- <link rel="stylesheet" href="{% static 'todo/login.css' %}"> -->
+{% endblock %}
+
+{% block content %} 
+
+<form method="post">
+    {% csrf_token %}
+    <h2>
+        Login Page
+    </h2>
+    <form method="post">
+        {{form.as_p}}
+        <input type="submit" value="Login">
+    </form>
+    
+</form>
+{% endblock %} 

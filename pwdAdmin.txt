@@ -1,3 +1,6 @@
 name : neil
 email address: neil@gmail.com
 password: DJANGOneil123
+
+username: josh
+passw: DJANGOjosh123
