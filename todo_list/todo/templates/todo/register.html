@@ -4,7 +4,7 @@
 {% block title %} Login Page {% endblock %}
 
 {% block cssFiles %}
-    <!-- <link rel="stylesheet" href="{% static 'todo/login.css' %}"> -->
+    <!-- <link rel="stylesheet" href="{% static 'todo/register.css' %}"> -->
 {% endblock %}
 
 {% block content %} 
@@ -12,14 +12,14 @@
 <form method="post">
     {% csrf_token %}
     <h2>
-        Login Page
+        Register User Page
     </h2>
     <form method="post">
         {{form.as_p}}
-        <input type="submit" value="Login">
+        <input type="submit" value="Register">
     </form>
 
-    <h4> Not a user? <a href="#"> Register Here </a></h4>
+    <h4> Already a user? <a href="#"> Login </a></h4>
     
 </form>
 {% endblock %} 
