@@ -3,7 +3,7 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
 from django.contrib.auth.views import LoginView, LogoutView
-
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
@@ -20,6 +20,18 @@ class loginPageView(LoginView):
 
 class logoutPageView(LogoutView):
     next_page = "loginPage"
+
+class RegistrationPageView(FormView):
+    template_name = "todo/register.html"
+    form_class = UserCreationForm
+    success_url = reverse_lazy('todoPage')
+    
+
+    def form_valid(self, form):
+        user = form.save()
+        if user is not None:
+            login(self.request, user)
+        return super().form_valid(form)
 
 class TodoTaskView(LoginRequiredMixin, ListView):
     template_name = "todo/todo.html"
